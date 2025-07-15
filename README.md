@@ -71,10 +71,9 @@ unzip Data/AnimeRatings/animeratings.zip -d Data/AnimeRatings/
 
 #### For Windows
 ```bash
-curl -L -o Data\AnimeRatings54M\animeratings-mini-54m.zip `
-     https://www.kaggle.com/api/v1/datasets/download/tavuksuzdurum/animeratings-mini-54m
+kaggle datasets download -d tavuksuzdurum/user-animelist-dataset -p Data\AnimeRatings
 
-Expand-Archive -Path 'Data\AnimeRatings54M\animeratings-mini-54m.zip' -DestinationPath 'Data\AnimeRatings54M'
+Expand-Archive -Path "Data\AnimeRatings\user-animelist-dataset.zip" -DestinationPath "Data\AnimeRatings" -Force
 ```
 
 ### Install Requirements
@@ -87,8 +86,8 @@ pip install -r requirements.txt
 
 ```bash
 python main_local.py \
-    --checkpoint-path Data/AnimeRatings54M/best_acc_model.pth \
-    --dataset-path Data/AnimeRatings54M/dataset.pkl \
+    --checkpoint-path Data/AnimeRatings/best_acc_model.pth \
+    --dataset-path Data/AnimeRatings/dataset.pkl \
     --animes-path Data/animes.json \
     --images-path Data/id_to_url.json \
     --mal-urls-path Data/anime_to_malurl.json \
