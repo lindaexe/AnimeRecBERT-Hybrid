@@ -87,11 +87,13 @@ pip install -r requirements.txt
 
 ```bash
 python main_local.py \
-  -c Data/AnimeRatings54M/pretrained_bert.pth \
-  -d Data/preprocessed/AnimeRatings54M_min_rating7-min_uc10-min_sc10-splitleave_one_out/dataset.pkl \
-  -a Data/AnimeRatings54M/animes.json \
-  --inference True \
-  --template train_bert        
+    --checkpoint-path Data/AnimeRatings54M/best_acc_model.pth \
+    --dataset-path Data/AnimeRatings54M/dataset.pkl \
+    --animes-path Data/animes.json \
+    --images-path Data/id_to_url.json \
+    --mal-urls-path Data/anime_to_malurl.json \
+    --type-seq-path Data/anime_to_typenseq.json \
+    --genres-path Data/id_to_genres.json \     
 ```
 
 ### Train Code (**Not Required for inference**)
