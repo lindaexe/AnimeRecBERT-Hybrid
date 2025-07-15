@@ -61,6 +61,8 @@ venv\Scripts\activate
 
 #### For Linux
 ```bash
+mkdir -p Data/AnimeRatings
+
 curl -L -o Data/AnimeRatings/animeratings.zip \
      https://www.kaggle.com/api/v1/datasets/download/tavuksuzdurum/user-animelist-dataset
 
@@ -69,6 +71,8 @@ unzip Data/AnimeRatings/animeratings.zip -d Data/AnimeRatings/
 
 #### For Windows
 ```bash
+mkdir Data\AnimeRatings
+
 kaggle datasets download -d tavuksuzdurum/user-animelist-dataset -p Data\AnimeRatings
 
 Expand-Archive -Path "Data\AnimeRatings\user-animelist-dataset.zip" -DestinationPath "Data\AnimeRatings" -Force
