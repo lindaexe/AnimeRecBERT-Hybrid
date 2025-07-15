@@ -40,7 +40,7 @@ Below are the Top-K recommendation metrics:
 
 ```bash
 git clone https://github.com/MRamazan/AnimeRecBERT-Hybrid
-cd AnimeRecBERT
+cd AnimeRecBERT-Hybrid
 ```
 
 ###  Create & Activate venv
