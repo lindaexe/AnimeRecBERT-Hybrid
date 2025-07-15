@@ -3,7 +3,7 @@ from .AnimeRatings54m import AnimeRatingsDataset
 
 DATASETS = {
     ML20MDataset.code(): ML20MDataset,
-    "AnimeRatings54M": AnimeRatingsDataset
+    "AnimeRatings": AnimeRatingsDataset
 }
 
 
