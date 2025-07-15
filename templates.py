@@ -5,7 +5,7 @@ def set_template(args):
     elif args.template.startswith('train_bert'):
         args.mode = 'train'
 
-        args.dataset_code = 'AnimeRatings54M'
+        args.dataset_code = 'AnimeRatings'
         args.min_rating = 7
         args.min_uc = 10
         args.min_sc = 10
