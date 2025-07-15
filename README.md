@@ -39,7 +39,7 @@ Below are the Top-K recommendation metrics:
 ### Clone Repo
 
 ```bash
-git clone https://github.com/MRamazan/AnimeRecBERT
+git clone https://github.com/MRamazan/AnimeRecBERT-Hybrid
 cd AnimeRecBERT
 ```
 
