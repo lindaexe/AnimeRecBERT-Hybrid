@@ -10,10 +10,6 @@
 
 This project provides a solid foundation for further development in personalized anime recommendation using transformer-based models.
 
-## Web Demo Available 🌐
-www.animerecbert.online <br>
-https://github.com/MRamazan/AnimeRecBertWeb
-
 ## Metrics
 The model was trained on a large-scale dataset containing 1.77 million users and 148 million ratings. Although positional encoding was removed, the results remain very close to those of the original BERT4Rec repository.
 Below are the Top-K recommendation metrics:
