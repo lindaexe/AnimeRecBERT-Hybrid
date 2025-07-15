@@ -7,7 +7,7 @@ import time
 from pathlib import Path
 
 
-class AR54MDataset(AbstractDataset):
+class AnimeRatingsDataset(AbstractDataset):
     @classmethod
     def code(cls):
         return 'AnimeRatings54M'
