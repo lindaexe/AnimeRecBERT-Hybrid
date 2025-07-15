@@ -95,11 +95,15 @@ python main_local.py \
     --genres-path Data/id_to_genres.json \     
 ```
 
-### Train Code (**Not Required for inference**)
-you can set parameters in templates.py file
+### Train Code 
+You can set parameters in templates.py file
+```bash
+# Preprocess takes up to 30 minutes
+# This script will move the dataset.pkl and negative samples file to preprocessed folder
+python move_files.py         
+```
 ```bash
 # This script will train, validate and test the model.
-# Training not required for inference.
 python main.py  --template train_bert             
 ```
 
