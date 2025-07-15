@@ -63,10 +63,10 @@ venv\Scripts\activate
 
 #### For Linux
 ```bash
-curl -L -o Data/AnimeRatings54M/animeratings-mini-54m.zip \
-     https://www.kaggle.com/api/v1/datasets/download/tavuksuzdurum/animeratings-mini-54m
+curl -L -o Data/AnimeRatings/animeratings.zip \
+     https://www.kaggle.com/api/v1/datasets/download/tavuksuzdurum/user-animelist-dataset
 
-unzip Data/AnimeRatings54M/animeratings-mini-54m.zip -d Data/AnimeRatings54M/
+unzip Data/AnimeRatings/animeratings.zip -d Data/AnimeRatings/
 ```
 
 #### For Windows
