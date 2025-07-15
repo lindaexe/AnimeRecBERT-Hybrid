@@ -12,7 +12,7 @@ def set_template(args):
         args.split = 'leave_one_out'
 
         args.dataloader_code = 'bert'
-        batch = 32
+        batch = 128
         args.train_batch_size = batch
         args.val_batch_size = batch
         args.test_batch_size = batch
@@ -33,7 +33,7 @@ def set_template(args):
         args.enable_lr_schedule = True
         args.decay_step = 25
         args.gamma = 1.0
-        args.num_epochs = 4
+        args.num_epochs = 3
         args.metric_ks = [1, 5, 10, 20, 50, 100]
         args.best_metric = 'NDCG@10'
 
@@ -160,4 +160,3 @@ def set_template(args):
         args.vae_hidden_dim = 600
         args.vae_latent_dim = 200
         args.vae_dropout = 0.5
-
