@@ -503,7 +503,6 @@ class AnimeRecommendationSystem:
 
     def get_anime_genres(self, anime_id):
         genres = self.id_to_genres.get(str(anime_id), [])
-        print(genres)
         return [genre for genre in genres[0]] if genres else []
 
     def get_all_animes(self):
