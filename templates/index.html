@@ -66,73 +66,7 @@
             pointer-events: none;
         }
 
-        /* Theme Switcher Styles */
-        .theme-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-
-        .theme-switcher-toggle {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            color: inherit;
-        }
-
-        .theme-switcher-toggle:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.1);
-        }
-
-        .theme-options {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 15px;
-            padding: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: translateY(-10px);
-            pointer-events: none;
-            transition: all 0.3s ease;
-            min-width: 150px;
-        }
-
-        .theme-options.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
-        }
-
-        .theme-option {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 2px 0;
-            font-size: 14px;
-            font-weight: 500;
-        }
+    
 
         .theme-option:hover {
             background: rgba(255, 255, 255, 0.1);
@@ -168,18 +102,7 @@
         .theme-orange .theme-color {
             background: linear-gradient(45deg, #ffa500, #ff4500);
         }
-        .product-hunt {
-            position: fixed;
-            top: 17px;
-            right: 235px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
+       
 
         /* Mobile responsive */
         @media (max-width: 768px) {
@@ -219,31 +142,6 @@
         <div class="anime-card"></div>
     </div>
 
-    <!-- Theme Switcher -->
-    <div class="theme-switcher">
-        <button class="theme-switcher-toggle" onclick="toggleThemeOptions()">🎨</button>
-        <div class="theme-options" id="themeOptions">
-            <div class="theme-option theme-purple active" onclick="changeTheme('purple')">
-                <div class="theme-color"></div>
-                <span>Purple</span>
-            </div>
-            <div class="theme-option theme-green" onclick="changeTheme('green')">
-                <div class="theme-color"></div>
-                <span>Green</span>
-            </div>
-            <div class="theme-option theme-orange" onclick="changeTheme('orange')">
-                <div class="theme-color"></div>
-                <span>Orange</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="social-button">
-        <a href="/chat" class="social-btn">
-            <span class="social-icon">💬</span>
-            <span class="social-text">Social</span>
-        </a>
-    </div>
 
     <button class="back-button" onclick="showFavorites()">← Back to Favorites</button>
 
