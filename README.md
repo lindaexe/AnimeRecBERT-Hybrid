@@ -178,6 +178,11 @@ Most of the recommendations were sequels to my favorites, which shows BERT's cap
 | ✅                  | [Oshi No Ko]                                                |
 | ✅                  | Frieren: Beyond Journey's End                                                |
 
+## Images
+
+<img src="favorite_selection.png" width="700">
+<img src="recommendations.png" width="700">
+
 
 
 
