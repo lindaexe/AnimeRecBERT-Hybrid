@@ -110,11 +110,8 @@ python move_files.py
 python main.py  --template train_bert             
 ```
 
-### Web GUI
-<img src="gui.png" alt="BERTRec GUI" width="900">
-
 # Results
-## 🌟 My Favorites (Input for Inference)
+## My Favorites (Input for Inference)
 
 | #  | Anime Title                                                                |
 |----|----------------------------------------------------------------------------|
@@ -128,10 +125,10 @@ python main.py  --template train_bert
 | 8  | Vanitas no Karte                                                           |
 | 9  | Jigokuraku                                                                 |
 
-## 🌟 Recommendations Based on My Favorites
+## Recommendations Based on My Favorites
 **Note:** The *position of favorites does not affect inference results*, as the model uses only the presence of items (not sequence).
 
-## 🏆 Top Anime Recommendations for Me
+## Top Anime Recommendations for Me
 
 | Rank | Anime Title                                                               
 |------|------------------------------------------------------------------------------
