@@ -10,7 +10,7 @@ from pathlib import Path
 class AnimeRatingsDataset(AbstractDataset):
     @classmethod
     def code(cls):
-        return 'AnimeRatings54M'
+        return 'AnimeRatings'
 
     @classmethod
     def url(cls):
