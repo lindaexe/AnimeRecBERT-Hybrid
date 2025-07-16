@@ -3,7 +3,7 @@
 **AnimeRecBERT** is a personalized anime recommendation system based on BERT transformer architecture. Adapted from [https://github.com/jaywonchung/BERT4Rec-VAE-Pytorch](https://github.com/jaywonchung/BERT4Rec-VAE-Pytorch), this project introduces customizations tailored for an anime recommendation system and inference.
 
 - ⚙️ **Hybrid Model with Genre Embeddings** — Added genre-based embeddings to enrich BERT inputs with auxiliary item metadata.
-- ⚙️ **No Positional Encoding** — Removed positional encoding due to lack of temporal signals in the dataset, which improved performance.
+- ⚙️ **No Positional Encoding** — Removed positional encoding due to lack of temporal signals in the dataset.
 - 🎌 **Anime-Specific User-Item Dataset** — Built on a large-scale dataset tailored for anime recommendations.
 
 This project provides a solid foundation for further development in personalized anime recommendation using transformer-based models.
