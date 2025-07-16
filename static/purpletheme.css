@@ -72,82 +72,7 @@
             pointer-events: none;
         }
 
-        /* Theme Switcher Styles */
-        .theme-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .theme-switcher-toggle {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            color: inherit;
-        }
-
-        .theme-switcher-toggle:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.1);
-        }
-
-        .theme-options {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 15px;
-            padding: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: translateY(-10px);
-            pointer-events: none;
-            transition: all 0.3s ease;
-            min-width: 150px;
-        }
-
-        .theme-options.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
-        }
-
-        .theme-option {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 2px 0;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .theme-option:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(3px);
-        }
-
-        .theme-option.active {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
+        
 
         .theme-color {
             width: 16px;
@@ -1162,45 +1087,7 @@
     background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
     box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
 }
-.social-button {
-    position: fixed;
-    top: 20px;
-    right: 100px; /* Theme switcher'dan sola kaydır */
-    z-index: 1000;
-}
 
-.social-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 15px 20px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: inherit;
-    font-weight: 500;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.social-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-}
-
-.social-icon {
-    font-size: 18px;
-}
-
-.social-text {
-    font-family: 'Inter', sans-serif;
-    color: white;
-}
 
 /* Delete Button Styles */
 .delete-button {
@@ -2834,8 +2721,4 @@ body {
     content: "";
     background: none; /* mavi tonları */
 
-}
-.product-hunt {
-    display: none !important;
-  }
 }
