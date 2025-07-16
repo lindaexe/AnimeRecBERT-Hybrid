@@ -34,7 +34,7 @@ class AnimeRatingsDataset(AbstractDataset):
         df = pd.read_csv(file_path, sep='::', header=None)
         
         df.columns = ['uid', 'sid', 'rating', 'timestamp']
-        print(np.max(df["sid"].to_numpy()))
+
         return df
 
 
