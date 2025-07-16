@@ -28,7 +28,7 @@ class BERTEmbedding(nn.Module):
 
                         main_dir = os.getcwd()
 
-                        relative_path_dataset = "Data/AnimeRatings/dataset.pkl"
+                        relative_path_dataset = "Data/preprocessed/AnimeRatings_min_rating7-min_uc10-min_sc10-splitleave_one_out/dataset.pkl"
                         relative_path_genres = "Data/AnimeRatings/id_to_genreids.json"
 
                         full_path_dataset = Path(main_dir) / relative_path_dataset
