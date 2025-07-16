@@ -135,47 +135,49 @@ python main.py  --template train_bert
 
 | Rank | Anime Title                                                               
 |------|------------------------------------------------------------------------------
-| #1   | Yofukashi no Uta                                                      |
-| #2   | Summertime Render                                                     |
-| #3   | Mushoku Tensei II: Isekai Ittara Honki Dasu                           | 
-| #4   | Tengoku Daimakyou                                                     | 
-| #5   | Jujutsu Kaisen                                                        |
-| #6   | Horimiya                                                              |       
-| #7   | Chainsaw Man                                                          |     
-| #8   | 86 Part 2                                                             |      
+| #1   | The Eminence in Shadow                                                    |
+| #2   | 86 Eighty-Six Part 2                                                     |
+| #3   | Classroom of the Elite II                          | 
+| #4   | Mushoku Tensei: Jobless Reincarnation Part 2                                                     | 
+| #5   | The Eminence in Shadow Season 2                                                       |
+| #6   | Mushoku Tensei: Jobless Reincarnation Season 2                                                            |       
+| #7   | Call of the Night                                                        |     
+| #8   | Re:ZERO -Starting Life in Another World- Season 3                                                            |      
 | #9   | Mushoku Tensei: Isekai Ittara Honki Dasu Part 2                       |    
-| #10  | Ore dake Level Up na Ken (Solo Leveling)                              |   
-| #11  | Kage no Jitsuryokusha ni Naritakute! 2nd Season                       |
-| #12  | Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 2nd Season            |    
-| #13  | Sousou no Frieren                                                     |    
-| #14  | Tonikaku Kawaii (Tonikawa: Over the Moon for You)                     |     
-| #15  | Cyberpunk: Edgerunners                                                |   
-| #16  | Tenki no Ko (Weathering With You)                                     |   
-| #17  | Dandadan                                                              |      
-| #18  | Spy x Family                                                          |
-| #19  | Make Heroine ga Oosugiru!                                             |
-| #20  | Boku no Kokoro no Yabai Yatsu                                         |
+| #10  | Mushoku Tensei: Jobless Reincarnation Season 2 Part 2                              |   
+| #11  | My Dress-Up Darling                       |
+| #12  | Alya Sometimes Hides Her Feelings in Russian            |    
+| #13  | Summer Time Rendering                                                     |    
+| #14  | Heavenly Delusion                     |     
+| #15  | Re:ZERO -Starting Life in Another World- Season 2 Part 2                                                |   
+| #16  | Vinland Saga Season 2                                    |   
+| #17  | Lycoris Recoil                                                              |      
+| #18  | [Oshi No Ko]                                                        |
+| #19  | [Oshi No Ko] Season 2                                            |
+| #20  | Frieren: Beyond Journey's End                                         |
 
 
 
 ### ✅ Evaluation: How Good Are the Recommendations?
 
-Out of the Top 20 recommendations, **10 titles** were already in my completed/favorites list — showing strong personalization performance.
+Out of the Top 20 recommendations, **11 titles** were already in my completed/favorites list — showing strong personalization performance.
+Most of the recommendations were sequels to my favorites, which shows BERT's capacity for data integrity and contextual awareness.
 
 
 | Watched & Liked? ✅ | Title                                                                  |
 |---------------------|------------------------------------------------------------------------|
-| ✅                  | Mushoku Tensei II: Isekai Ittara Honki Dasu                            |
-| ✅                  | Mushoku Tensei: Isekai Ittara Honki Dasu Part 2                        |
-| ✅                  | Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 2nd Season             |
-| ✅                  | Make Heroine ga Oosugiru!                                              |
-| ✅                  | Spy x Family                                                           |
-| ✅                  | Dandadan                                                               |
-| ✅                  | 86 Part 2                                                              |
-| ✅                  | Jujutsu Kaisen                                                         |
-| ✅                  | Chainsaw Man                                                           |
-| ✅                  | Cyberpunk: Edgerunners                                                 |
+| ✅                  | 86 Eighty-Six Part 2                            |
+| ✅                  | Classroom of the Elite II                      |
+| ✅                  | Mushoku Tensei: Jobless Reincarnation Part 2            |
+| ✅                  | Mushoku Tensei: Jobless Reincarnation Season 2                                              |
+| ✅                  | Mushoku Tensei: Isekai Ittara Honki Dasu Part 2                                                           |
+| ✅                  | Mushoku Tensei: Jobless Reincarnation Season 2 Part 2                                                                |
+| ✅                  | My Dress-Up Darling                                                              |
+| ✅                  | Alya Sometimes Hides Her Feelings in Russian                                                          |
+| ✅                  | Heavenly Delusion                                                             |
+| ✅                  | [Oshi No Ko]                                                |
+| ✅                  | Frieren: Beyond Journey's End                                                |
 
-*I’m genuinely excited to watch the remaining anime as well — even with a quick glance, it’s clear they’re a great fit for my taste.*
+
 
 
