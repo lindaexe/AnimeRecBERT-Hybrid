@@ -31,19 +31,19 @@ parser.add_argument('--split', type=str, default='leave_one_out', help='How to s
 parser.add_argument('--dataset_split_seed', type=int, default=98765)
 parser.add_argument('--eval_set_size', type=int, default=10000, 
                     help='Size of val and test set. 500 for ML-1m and 10000 for ML-20m recommended')
-parser.add_argument('--checkpoint-path', type=str, required=True,
+parser.add_argument('--checkpoint-path', type=str, required=False,
                         help='Path to the model checkpoint (.pth file)')
-parser.add_argument('--dataset-path', type=str, required=True,
+parser.add_argument('--dataset-path', type=str, required=False,
                         help='Path to the dataset pickle file')
-parser.add_argument('--animes-path', type=str, required=True,
+parser.add_argument('--animes-path', type=str, required=False,
                         help='Path to the animes.json file')
-parser.add_argument('--images-path', type=str, default='id_to_url.json',
+parser.add_argument('--images-path', type=str, default='Data/id_to_url.json',
                         help='Path to the images JSON file (default: id_to_url.json)')
-parser.add_argument('--mal-urls-path', type=str, default='anime_to_malurl.json',
+parser.add_argument('--mal-urls-path', type=str, default='Data/anime_to_malurl.json',
                         help='Path to the MAL URLs JSON file (default: anime_to_malurl.json)')
-parser.add_argument('--type-seq-path', type=str, default='anime_to_typenseq.json',
+parser.add_argument('--type-seq-path', type=str, default='Data/anime_to_typenseq.json',
                         help='Path to the type/sequel JSON file (default: anime_to_typenseq.json)')
-parser.add_argument('--genres-path', type=str, default='id_to_genres.json',
+parser.add_argument('--genres-path', type=str, default='Data/id_to_genres.json',
                         help='Path to the genres JSON file (default: id_to_genres.json)')
 
 #inference
