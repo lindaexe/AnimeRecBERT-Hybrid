@@ -862,34 +862,6 @@ def main():
     global recommendation_system
 
 
-
-    import gdown
-    import os
-
-    file_ids = {
-        "1U42cFrdLFT8NVNikT9C5SD9aAux7a5U2": "animes.json",
-        "1SOm1llcTKfhr-RTHC0dhaZ4AfWPs8wRx": "id_to_url.json",
-        "1vwJEMEOIYwvCKCCbbeaP0U_9L3NhvBzg": "anime_to_malurl.json",
-        "1_TyzON6ie2CqvzVNvPyc9prMTwLMefdu": "anime_to_typenseq.json",
-        "1G9O_ahyuJ5aO0cwoVnIXrlzMqjKrf2aw": "id_to_genres.json"
-    }
-
-    def download_from_gdrive(file_id, output_path):
-        url = f"https://drive.google.com/uc?id={file_id}"
-        try:
-            print(f"Downloading: {file_id}")
-            gdown.download(url, output_path, quiet=False)
-            print(f"Downloaded: {output_path}")
-            return True
-        except Exception as e:
-            print(f"Error: {e}")
-            return False
-
-    for key, value in file_ids.items():
-        if os.path.isfile(value):
-            continue
-        download_from_gdrive(key, value)
-
     try:
         images_path = "id_to_url.json"
         mal_urls_path = "anime_to_malurl.json"
