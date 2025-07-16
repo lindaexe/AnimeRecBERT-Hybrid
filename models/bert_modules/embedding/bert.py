@@ -28,8 +28,8 @@ class BERTEmbedding(nn.Module):
 
                         main_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.getcwd())))
 
-                        relative_path_dataset = "Data/preprocessed/AnimeRatings54M_min_rating7-min_uc10-min_sc10-splitleave_one_out/dataset.pkl"
-                        relative_path_genres = "Data/AnimeRatings54M/id_to_genreids.json"
+                        relative_path_dataset = "Data/preprocessed/AnimeRatings_min_rating7-min_uc10-min_sc10-splitleave_one_out/dataset.pkl"
+                        relative_path_genres = "Data/AnimeRatings/id_to_genreids.json"
 
                         full_path_dataset = Path(main_dir) / relative_path_dataset
                         full_path_genres = Path(main_dir) / relative_path_genres
