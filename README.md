@@ -88,13 +88,14 @@ pip install -r requirements.txt
 
 ```bash
 python main_local.py \
-    --checkpoint-path Data/AnimeRatings/best_acc_model.pth \
-    --dataset-path Data/AnimeRatings/dataset.pkl \
-    --animes-path Data/animes.json \
-    --images-path Data/id_to_url.json \
-    --mal-urls-path Data/anime_to_malurl.json \
-    --type-seq-path Data/anime_to_typenseq.json \
-    --genres-path Data/id_to_genres.json \     
+  --checkpoint-path Data/AnimeRatings/pretrained_bert.pth \
+  --dataset-path Data/AnimeRatings/dataset.pkl \
+  --animes-path Data/animes.json \
+  --images-path Data/id_to_url.json \
+  --mal-urls-path Data/anime_to_malurl.json \
+  --type-seq-path Data/anime_to_typenseq.json \
+  --genres-path Data/id_to_genres.json
+ 
 ```
 
 ### Train Code 
