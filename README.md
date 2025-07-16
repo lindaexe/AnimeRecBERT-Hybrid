@@ -180,8 +180,8 @@ Most of the recommendations were sequels to my favorites, which shows BERT's cap
 
 ## Images
 
-<img src="favorite_selection.png" width="700">
-<img src="recommendations.png" width="700">
+<img src="favorite_selection.png" width="900">
+<img src="recommendations.png" width="900">
 
 
 
