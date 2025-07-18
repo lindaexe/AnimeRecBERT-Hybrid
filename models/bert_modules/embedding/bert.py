@@ -107,7 +107,7 @@ class BERTEmbedding(nn.Module):
     
     def _create_single_genre_mapping(self, dataset_smap, id_to_genres, vocab_size):
         token_to_genre = {}
-        for token_id, anime_id in dataset_smap.items():
+        for anime_id, token_id in dataset_smap.items():
             if token_id < vocab_size:
                 genre_list = id_to_genres.get(str(anime_id), [0])
                 genre_id = genre_list[0] if genre_list else 0
@@ -130,7 +130,7 @@ class BERTEmbedding(nn.Module):
     
     def _create_multi_genre_mapping(self, dataset_smap, id_to_genres, vocab_size):
         token_to_genres = {}
-        for token_id, anime_id in dataset_smap.items():
+        for anime_id, token_id in dataset_smap.items():
             if token_id < vocab_size:
                 genre_list = id_to_genres.get(str(anime_id), [0])
 
