@@ -270,6 +270,129 @@ class AnimeRecommendationSystem:
                 print(f"{i}. {details['name']} (ID: {anime_id})")
 
 
+# Kaggle için önceden tanımlanmış demo veriler
+def get_demo_setup():
+    """Kaggle için önceden tanımlanmış demo animeler ve ayarlar"""
+    demo_favorites = [
+        "Naruto", "Attack on Titan", "One Piece", "Death Note", "Demon Slayer"
+    ]
+    demo_blacklist = [
+        "School Days", "Mars of Destruction"
+    ]
+    return demo_favorites, demo_blacklist
+
+def demo_workflow(recommender):
+    """Kaggle için otomatik demo workflow"""
+    print("\n" + "="*60)
+    print("🎌 KAGGLE ANIME RECOMMENDATION DEMO 🎌")
+    print("="*60)
+    
+    demo_favorites, demo_blacklist = get_demo_setup()
+    
+    print("\n📝 DEMO SETUP:")
+    print("Adding demo favorite animes...")
+    
+    # Demo favorileri ekle
+    added_count = 0
+    for anime_name in demo_favorites:
+        matches = recommender.search_anime(anime_name)
+        if matches:
+            anime_id = matches[0]['id']  # En yakın eşleşmeyi al
+            if recommender.add_favorite(anime_id):
+                print(f"✅ Added '{matches[0]['name']}' to favorites")
+                added_count += 1
+        else:
+            print(f"❌ Could not find '{anime_name}'")
+    
+    print(f"\n✅ Added {added_count} animes to favorites!")
+    
+    # Demo kara liste
+    print("\n🚫 Adding demo blacklisted animes...")
+    blacklist_count = 0
+    for anime_name in demo_blacklist:
+        matches = recommender.search_anime(anime_name)
+        if matches:
+            anime_id = matches[0]['id']
+            if recommender.add_blacklist(anime_id):
+                print(f"✅ Added '{matches[0]['name']}' to blacklist")
+                blacklist_count += 1
+    
+    print(f"\n✅ Added {blacklist_count} animes to blacklist!")
+    
+    # Favorileri göster
+    print("\n" + "="*50)
+    recommender.print_favorites()
+    
+    # Kara listeyi göster
+    print("\n" + "="*50)
+    recommender.print_blacklist()
+    
+    # Öneriler al
+    print("\n" + "="*50)
+    print("🎯 GETTING RECOMMENDATIONS...")
+    recommendations, message = recommender.get_recommendations(25)
+    
+    print(f"\n{message}")
+    if recommendations:
+        print("\n🌟 TOP ANIME RECOMMENDATIONS:")
+        print("="*60)
+        for i, rec in enumerate(recommendations, 1):
+            print(f"{i:2d}. {rec['name']} (ID: {rec['id']})")
+            if 'score' in rec:
+                print(f"    📊 Score: {rec['score']:.4f}")
+            if rec.get('genres'):
+                print(f"    🎭 Genres: {', '.join(rec['genres'][:5])}")  # İlk 5 türü göster
+            if rec.get('mal_url'):
+                print(f"    🔗 MAL: {rec['mal_url']}")
+            print()
+
+def search_and_recommend(recommender, search_queries, num_recommendations=15):
+    """Belirli animeleri ara ve öner (Kaggle için)"""
+    print("\n" + "="*60)
+    print("🔍 SEARCH AND RECOMMEND WORKFLOW")
+    print("="*60)
+    
+    print(f"Searching for: {', '.join(search_queries)}")
+    
+    for query in search_queries:
+        print(f"\n🔍 Searching for: '{query}'")
+        matches = recommender.search_anime(query)
+        
+        if matches:
+            # En iyi eşleşmeyi favorilere ekle
+            best_match = matches[0]
+            if recommender.add_favorite(best_match['id']):
+                print(f"✅ Added '{best_match['name']}' to favorites!")
+            else:
+                print(f"ℹ️  '{best_match['name']}' already in favorites")
+            
+            # Alternatifleri göster
+            if len(matches) > 1:
+                print(f"   Other matches found:")
+                for match in matches[1:6]:  # En fazla 5 alternatif göster
+                    print(f"   - {match['name']} (ID: {match['id']})")
+        else:
+            print(f"❌ No matches found for '{query}'")
+    
+    print("\n📋 Current Favorites:")
+    recommender.print_favorites()
+    
+    # Öneriler al
+    print(f"\n🎯 Getting {num_recommendations} recommendations based on your favorites...")
+    recommendations, message = recommender.get_recommendations(num_recommendations)
+    
+    print(f"\n{message}")
+    if recommendations:
+        print("\n🌟 PERSONALIZED RECOMMENDATIONS:")
+        print("="*50)
+        for i, rec in enumerate(recommendations, 1):
+            print(f"{i:2d}. {rec['name']}")
+            if rec.get('genres'):
+                print(f"    🎭 {', '.join(rec['genres'][:3])}")
+            if 'score' in rec:
+                print(f"    📊 {rec['score']:.3f}")
+            print()
+
 def main():
     checkpoint_path = "Data/AnimeRatings/pretrained_bert.pth"
     dataset_path = "Data/AnimeRatings/dataset.pkl"
@@ -281,7 +404,7 @@ def main():
     
     try:
         # Sistem başlatma
-        print("Initializing Anime Recommendation System...")
+        print("Initializing Anime Recommendation System for Kaggle...")
         recommender = AnimeRecommendationSystem(
             checkpoint_path=checkpoint_path,
             dataset_path=dataset_path,
@@ -292,143 +415,103 @@ def main():
             genres_path=genres_path
         )
         
-        print("\n" + "="*60)
-        print("🎌 ANIME RECOMMENDATION SYSTEM 🎌")
-        print("="*60)
+        # DEMO WORKFLOW 1: Önceden tanımlanmış demo
+        demo_workflow(recommender)
         
-        while True:
-            print("\n--- MENU ---")
-            print("1. Search and add anime to favorites")
-            print("2. Remove anime from favorites")
-            print("3. Add anime to blacklist")
-            print("4. Remove anime from blacklist")
-            print("5. View favorites")
-            print("6. View blacklist")
-            print("7. Get recommendations")
-            print("8. Exit")
-            
-            choice = input("\nEnter your choice (1-8): ").strip()
-            
-            if choice == "1":
-                # Anime arama ve ekleme
-                query = input("Enter anime name to search: ").strip()
-                if query:
-                    matches = recommender.search_anime(query)
-                    if matches:
-                        print(f"\nFound {len(matches)} matches:")
-                        for i, match in enumerate(matches, 1):
-                            print(f"{i}. {match['name']} (ID: {match['id']})")
-                        
-                        try:
-                            choice_idx = int(input("Select anime number (0 to cancel): ")) - 1
-                            if 0 <= choice_idx < len(matches):
-                                selected_anime = matches[choice_idx]
-                                if recommender.add_favorite(selected_anime['id']):
-                                    print(f"✅ Added '{selected_anime['name']}' to favorites!")
-                                else:
-                                    print("❌ Anime already in favorites!")
-                            elif choice_idx != -1:
-                                print("❌ Invalid selection!")
-                        except ValueError:
-                            print("❌ Please enter a valid number!")
-                    else:
-                        print("❌ No matches found!")
-            
-            elif choice == "2":
-                # Favori animeden çıkarma
-                recommender.print_favorites()
-                if recommender.favorite_animes:
-                    try:
-                        anime_id = int(input("Enter anime ID to remove from favorites: "))
-                        if recommender.remove_favorite(anime_id):
-                            print("✅ Removed from favorites!")
-                        else:
-                            print("❌ Anime not found in favorites!")
-                    except ValueError:
-                        print("❌ Please enter a valid anime ID!")
-            
-            elif choice == "3":
-                # Kara listeye ekleme
-                query = input("Enter anime name to search and blacklist: ").strip()
-                if query:
-                    matches = recommender.search_anime(query)
-                    if matches:
-                        print(f"\nFound {len(matches)} matches:")
-                        for i, match in enumerate(matches, 1):
-                            print(f"{i}. {match['name']} (ID: {match['id']})")
-                        
-                        try:
-                            choice_idx = int(input("Select anime number (0 to cancel): ")) - 1
-                            if 0 <= choice_idx < len(matches):
-                                selected_anime = matches[choice_idx]
-                                if recommender.add_blacklist(selected_anime['id']):
-                                    print(f"✅ Added '{selected_anime['name']}' to blacklist!")
-                                else:
-                                    print("❌ Anime already in blacklist!")
-                            elif choice_idx != -1:
-                                print("❌ Invalid selection!")
-                        except ValueError:
-                            print("❌ Please enter a valid number!")
-                    else:
-                        print("❌ No matches found!")
-            
-            elif choice == "4":
-                # Kara listeden çıkarma
-                recommender.print_blacklist()
-                if recommender.blacklisted_animes:
-                    try:
-                        anime_id = int(input("Enter anime ID to remove from blacklist: "))
-                        if recommender.remove_blacklist(anime_id):
-                            print("✅ Removed from blacklist!")
-                        else:
-                            print("❌ Anime not found in blacklist!")
-                    except ValueError:
-                        print("❌ Please enter a valid anime ID!")
-            
-            elif choice == "5":
-                # Favorileri göster
-                recommender.print_favorites()
-            
-            elif choice == "6":
-                # Kara listeyi göster
-                recommender.print_blacklist()
-            
-            elif choice == "7":
-                # Önerileri getir
-                if not recommender.favorite_animes:
-                    print("❌ Please add some favorite animes first!")
-                    continue
-                
-                try:
-                    num_rec = int(input("Number of recommendations (default 20): ") or "20")
-                    recommendations, message = recommender.get_recommendations(num_rec)
-                    
-                    print(f"\n{message}")
-                    if recommendations:
-                        print("\n🎯 RECOMMENDATIONS:")
-                        print("="*50)
-                        for i, rec in enumerate(recommendations, 1):
-                            print(f"{i}. {rec['name']} (ID: {rec['id']})")
-                            if 'score' in rec:
-                                print(f"   Score: {rec['score']:.4f}")
-                            if rec.get('genres'):
-                                print(f"   Genres: {', '.join(rec['genres'])}")
-                            if rec.get('mal_url'):
-                                print(f"   MAL: {rec['mal_url']}")
-                            print()
-                except ValueError:
-                    print("❌ Please enter a valid number!")
-            
-            elif choice == "8":
-                print("👋 Goodbye! Thanks for using the Anime Recommendation System!")
-                break
-            
-            else:
-                print("❌ Invalid choice! Please select 1-8.")
-    
+        print("\n" + "="*80)
+        print("🎯 CUSTOM SEARCH DEMO")
+        print("="*80)
+        
+        # DEMO WORKFLOW 2: Özel arama
+        # Bu kısmı kendi istediğiniz animelerle değiştirebilirsiniz
+        custom_searches = [
+            "Fullmetal Alchemist", 
+            "Hunter x Hunter", 
+            "Code Geass",
+            "One Punch Man",
+            "Jujutsu Kaisen"
+        ]
+        
+        # Yeni bir recommender instance (temiz başlangıç için)
+        recommender2 = AnimeRecommendationSystem(
+            checkpoint_path=checkpoint_path,
+            dataset_path=dataset_path,
+            animes_path=animes_path,
+            images_path=images_path,
+            mal_urls_path=mal_urls_path,
+            type_seq_path=type_seq_path,
+            genres_path=genres_path
+        )
+        
+        search_and_recommend(recommender2, custom_searches, num_recommendations=20)
+        
+        print("\n" + "="*80)
+        print("✨ ANIME RECOMMENDATION ANALYSIS COMPLETE!")
+        print("="*80)
+        print("📊 Summary:")
+        print(f"- Total animes in database: {len(recommender.id_to_anime)}")
+        print(f"- Demo favorites added: {len(recommender.favorite_animes)}")
+        print(f"- Custom search favorites: {len(recommender2.favorite_animes)}")
+        print(f"- Blacklisted animes: {len(recommender.blacklisted_animes)}")
+        
     except Exception as e:
         print(f"❌ Error initializing system: {str(e)}")
         print("Please check your file paths and data files.")
 
-if __name__ == "__main__":
+# Kaggle için ek yardımcı fonksiyonlar
+def quick_test(animes_path_only):
+    """Sadece anime listesiyle hızlı test (model olmadan)"""
+    print("🚀 Quick Test Mode (No Model Required)")
+    print("="*50)
+    
+    try:
+        with open(animes_path_only, "r", encoding="utf-8") as file:
+            id_to_anime = json.load(file)
+        
+        print(f"✅ Loaded {len(id_to_anime)} animes")
+        
+        # Rastgele 10 anime göster
+        anime_items = list(id_to_anime.items())
+        sample_animes = random.sample(anime_items, min(10, len(anime_items)))
+        
+        print("\n📝 Random anime samples:")
+        for anime_id, anime_data in sample_animes:
+            anime_name = anime_data[0] if isinstance(anime_data, list) else str(anime_data)
+            print(f"- {anime_name} (ID: {anime_id})")
+        
+        # Arama testi
+        test_queries = ["Naruto", "Attack", "Death", "One Piece", "Dragon"]
+        print(f"\n🔍 Search test with queries: {test_queries}")
+        
+        for query in test_queries:
+            matches = []
+            for anime_id, anime_data in id_to_anime.items():
+                anime_names = anime_data if isinstance(anime_data, list) else [anime_data]
+                for name in anime_names:
+                    if query.lower() in name.lower():
+                        matches.append((anime_id, name))
+                        break
+            
+            print(f"\n'{query}' found {len(matches)} matches:")
+            for anime_id, name in matches[:3]:  # İlk 3'ü göster
+                print(f"  - {name} (ID: {anime_id})")
+        
+    except Exception as e:
+        print(f"❌ Error in quick test: {str(e)}")
+
+# Kaggle'da çalıştırmak için bu fonksiyonu kullanın
+def run_kaggle_demo():
+    """Kaggle için tek satırlık demo çalıştırıcı"""
+    print("🎌 Starting Kaggle Anime Recommendation Demo...")
+    
+    # Dosya yollarınızı buraya girin
+    animes_path = "/kaggle/input/your-dataset/id_to_anime.json"  # ← Bu yolu güncelleyin
+    
+    # Sadece anime listesi varsa hızlı test
+    if Path(animes_path).exists():
+        quick_test(animes_path)
+    
+    # Tam sistem varsa
     main()
+    
+    
