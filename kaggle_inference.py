@@ -271,14 +271,13 @@ class AnimeRecommendationSystem:
 
 
 def main():
-    # Dosya yolları - Kaggle ortamına göre güncelleyin
-    checkpoint_path = "/kaggle/input/your-dataset/model_checkpoint.pth"
-    dataset_path = "/kaggle/input/your-dataset/dataset.pkl"
-    animes_path = "/kaggle/input/your-dataset/id_to_anime.json"
-    images_path = "/kaggle/input/your-dataset/id_to_url.json"  # Opsiyonel
-    mal_urls_path = "/kaggle/input/your-dataset/anime_to_malurl.json"  # Opsiyonel
-    type_seq_path = "/kaggle/input/your-dataset/anime_to_typenseq.json"  # Opsiyonel
-    genres_path = "/kaggle/input/your-dataset/id_to_genres.json"  # Opsiyonel
+    checkpoint_path = "Data/AnimeRatings/pretrained_bert.pth"
+    dataset_path = "Data/AnimeRatings/dataset.pkl"
+    animes_path = "Data/animes.json"
+    images_path = "Data/id_to_url.json" 
+    mal_urls_path = "Data/anime_to_malurl.json" 
+    type_seq_path = "Data/anime_to_typenseq.json"
+    genres_path = "Data/id_to_genres.json" 
     
     try:
         # Sistem başlatma
