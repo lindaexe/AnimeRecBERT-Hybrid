@@ -514,4 +514,4 @@ def run_kaggle_demo():
     # Tam sistem varsa
     main()
     
-    
+run_kaggle_demo()  
