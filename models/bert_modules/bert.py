@@ -21,9 +21,6 @@ class BERT(nn.Module):
         hidden = args.bert_hidden_units
         self.hidden = hidden
         dropout = args.bert_dropout
-        with Path("/home/lm/Downloads/proje/BERTRec_exp/AnimeRecBERT/Data/preprocessed/AnimeRatings54M_min_rating7-min_uc10-min_sc10-splitleave_one_out/dataset.pkl").open('rb') as f:
-            self.dataset_smap = pickle.load(f)["smap"]
-        self.reversed_smap = {value: key for key, value in self.dataset_smap.items()}
 
         # embedding for BERT, sum of positional, segment, token embeddings
         self.embedding = BERTEmbedding(vocab_size=vocab_size, embed_size=self.hidden, max_len=max_len, dropout=dropout)
