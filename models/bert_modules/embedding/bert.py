@@ -54,7 +54,7 @@ class BERTEmbedding(nn.Module):
                         }
         return cls._mappings_cache
     
-    def __init__(self, vocab_size, embed_size, max_len, dropout=0.1, multi_genre=True, max_genres_per_anime=5):
+    def __init__(self, vocab_size, embed_size, max_len, dropout=0.1, multi_genre=False, max_genres_per_anime=5):
         super().__init__()
 
         mappings = self._load_mappings()
