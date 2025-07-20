@@ -84,6 +84,12 @@ Install PyTorch from https://pytorch.org/get-started/locally/
 pip install -r requirements.txt
 ```
 
+```bash
+# Preprocess takes up to 30 minutes
+# This script will move the dataset.pkl and negative samples file to preprocessed folder
+python move_files.py         
+```
+
 ### Run Local Host
 
 ```bash
@@ -100,11 +106,6 @@ python main_local.py \
 
 ### Train Code 
 You can set parameters in templates.py file
-```bash
-# Preprocess takes up to 30 minutes
-# This script will move the dataset.pkl and negative samples file to preprocessed folder
-python move_files.py         
-```
 ```bash
 # This script will train, validate and test the model.
 python main.py  --template train_bert             
