@@ -7,7 +7,7 @@
 - 🎌 **Anime-Specific User-Item Dataset** — Built on a large-scale dataset tailored for anime recommendations.
 - **Kaggle Train and Inference Notebooks** available
 
-### Kaggle Inference
+### Kaggle Inference & Interactive Recommender
 -https://www.kaggle.com/code/tavuksuzdurum/animerecommenderbert-inference
 
 ### Kaggle Train
