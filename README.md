@@ -5,7 +5,14 @@
 - ⚙️ **Hybrid Model with Genre Embeddings** — Added genre-based embeddings to enrich BERT inputs with auxiliary item metadata.
 - ⚙️ **No Positional Encoding** — Removed positional encoding due to lack of temporal signals in the dataset.
 - 🎌 **Anime-Specific User-Item Dataset** — Built on a large-scale dataset tailored for anime recommendations.
-- **Kaggle Training and Inference Notebooks** available
+- **Kaggle Train and Inference Notebooks** available
+
+### Kaggle Inference
+-https://www.kaggle.com/code/tavuksuzdurum/animerecommenderbert-inference
+
+### Kaggle Train
+https://www.kaggle.com/code/tavuksuzdurum/animerecommenderbert-train
+
 
 This project provides a solid foundation for further development in personalized anime recommendation using transformer-based models.
 
