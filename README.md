@@ -93,9 +93,9 @@ python move_files.py
 ### Run Local Host
 
 ```bash
-python main_local.py \
+!python main_local.py \
   --checkpoint-path Data/AnimeRatings/pretrained_bert.pth \
-  --dataset-path Data/AnimeRatings/dataset.pkl \
+  --dataset-path Data/preprocessed/AnimeRatings_min_rating7-min_uc10-min_sc10-splitleave_one_out/dataset.pkl \
   --animes-path Data/animes.json \
   --images-path Data/id_to_url.json \
   --mal-urls-path Data/anime_to_malurl.json \
