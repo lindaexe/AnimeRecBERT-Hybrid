@@ -94,7 +94,7 @@ pip install -r requirements.txt
 
 ```bash
 # Preprocess takes up to 30 minutes
-# This script will move the dataset.pkl and negative samples file to preprocessed folder
+# To avoid this, this script will move the dataset.pkl and negative samples file to preprocessed folder
 python move_files.py         
 ```
 
