@@ -8,7 +8,7 @@
 - **Kaggle Train and Inference Notebooks** available
 
 ### Kaggle Inference & Interactive Recommender
--https://www.kaggle.com/code/tavuksuzdurum/animerecommenderbert-inference
+https://www.kaggle.com/code/tavuksuzdurum/animerecommenderbert-inference
 
 ### Kaggle Train
 https://www.kaggle.com/code/tavuksuzdurum/animerecommenderbert-train
