@@ -24,9 +24,8 @@ def generate_username():
     return f"{random.choice(adjectives)}{random.choice(nouns)}{random.randint(100, 999)}"
 
 def clean_message(message):
-    # HTML tag'leri temizle
     message = re.sub(r'<[^>]*>', '', message)
-    # Uzunluk kontrolü
+    
     if len(message) > 500:
         message = message[:500]
     return message.strip()
@@ -36,38 +35,37 @@ from datetime import datetime
 import xml.etree.ElementTree as ET
 
 
-# Mevcut kodunuza eklenecek sitemap route'ları
 
 @app.route('/sitemap.xml')
 def sitemap():
     """Dinamik sitemap.xml oluşturur"""
     try:
-        # XML root element
+        
         urlset = ET.Element('urlset')
         urlset.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
         urlset.set('xmlns:image', 'http://www.google.com/schemas/sitemap-image/1.1')
 
-        # Base URL - gerçek domain'inizle değiştirin
+        
         base_url = request.url_root.rstrip('/')
         current_date = datetime.now().strftime('%Y-%m-%d')
 
-        # Ana sayfa
+        
         url = ET.SubElement(urlset, 'url')
         ET.SubElement(url, 'loc').text = f'{base_url}/'
         ET.SubElement(url, 'lastmod').text = current_date
         ET.SubElement(url, 'changefreq').text = 'daily'
         ET.SubElement(url, 'priority').text = '1.0'
 
-        # Chat sayfası
+       
         url = ET.SubElement(urlset, 'url')
         ET.SubElement(url, 'loc').text = f'{base_url}/chat'
         ET.SubElement(url, 'lastmod').text = current_date
         ET.SubElement(url, 'changefreq').text = 'hourly'
         ET.SubElement(url, 'priority').text = '0.8'
 
-        # Anime sayfaları (popüler animeler için)
+        
         if recommendation_system and recommendation_system.id_to_anime:
-            # İlk 100 anime'yi sitemap'e ekle (SEO için çok fazla URL eklemeyin)
+            
             anime_count = 0
             for anime_id, anime_data in recommendation_system.id_to_anime.items():
                 if anime_count >= 100:  # Limit
@@ -75,7 +73,7 @@ def sitemap():
 
                 try:
                     anime_name = anime_data[0] if isinstance(anime_data, list) and len(anime_data) > 0 else str(anime_data)
-                    # URL-safe anime adı oluştur
+                    
                     safe_name = anime_name.replace(' ', '-').replace('/', '-').replace('?', '').replace('&', 'and')
                     safe_name = re.sub(r'[^\w\-]', '', safe_name)  # Sadece harf, rakam ve tire
 
@@ -85,7 +83,7 @@ def sitemap():
                     ET.SubElement(url, 'changefreq').text = 'weekly'
                     ET.SubElement(url, 'priority').text = '0.6'
 
-                    # Resim URL'si varsa ekle
+                    
                     image_url = recommendation_system.get_anime_image_url(int(anime_id))
                     if image_url:
                         image_elem = ET.SubElement(url, 'image:image')
@@ -98,10 +96,10 @@ def sitemap():
                     print(f"Error processing anime {anime_id}: {e}")
                     continue
 
-        # XML'i string'e çevir
+        
         xml_str = ET.tostring(urlset, encoding='unicode')
 
-        # XML declaration ekle
+        
         xml_declaration = '<?xml version="1.0" encoding="UTF-8"?>\n'
         full_xml = xml_declaration + xml_str
 
