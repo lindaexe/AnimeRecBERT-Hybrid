@@ -250,7 +250,6 @@ class BERTEmbedding(nn.Module):
     
     def _aggregate_genre_embeddings(self, genre_embeddings):
         """Aggregate multiple genre embeddings per anime"""
-        # genre_embeddings shape: (batch_size, seq_len, max_genres_per_anime, embed_size)
         batch_size, seq_len, max_genres, embed_size = genre_embeddings.shape
 
         weights = F.softmax(self.genre_aggregation, dim=0)
