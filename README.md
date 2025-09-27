@@ -8,10 +8,10 @@
 - **Kaggle Train and Inference Notebooks** available
 
 ### Kaggle Inference & Interactive Recommender
-https://www.kaggle.com/code/tavuksuzdurum/animerecommenderbert-inference
+https://www.kaggle.com/code/ramazanturann/animerecommenderbert-inference
 
 ### Kaggle Train
-https://www.kaggle.com/code/tavuksuzdurum/animerecommenderbert-train
+https://www.kaggle.com/code/ramazanturann/animerecommenderbert-train
 
 
 This project provides a solid foundation for further development in personalized anime recommendation using transformer-based models.
@@ -72,7 +72,7 @@ venv\Scripts\activate
 mkdir -p Data/AnimeRatings
 
 curl -L -o Data/AnimeRatings/animeratings.zip \
-     https://www.kaggle.com/api/v1/datasets/download/tavuksuzdurum/user-animelist-dataset
+     https://www.kaggle.com/api/v1/datasets/download/ramazanturann/user-animelist-dataset
 
 unzip Data/AnimeRatings/animeratings.zip -d Data/AnimeRatings/
 ```
@@ -81,7 +81,7 @@ unzip Data/AnimeRatings/animeratings.zip -d Data/AnimeRatings/
 ```bash
 mkdir Data\AnimeRatings
 
-kaggle datasets download -d tavuksuzdurum/user-animelist-dataset -p Data\AnimeRatings
+kaggle datasets download -d ramazanturann/user-animelist-dataset -p Data\AnimeRatings
 
 Expand-Archive -Path "Data\AnimeRatings\user-animelist-dataset.zip" -DestinationPath "Data\AnimeRatings" -Force
 ```
