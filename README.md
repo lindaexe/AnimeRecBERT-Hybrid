@@ -6,6 +6,7 @@
 - ⚙️ **No Positional Encoding** — Removed positional encoding due to lack of temporal signals in the dataset.
 - 🎌 **Anime-Specific User-Item Dataset** — Built on a large-scale dataset tailored for anime recommendations.
 - **Kaggle Train and Inference Notebooks** available
+- **Huggingface Space** available
 
 ### Kaggle Inference & Interactive Recommender
 https://www.kaggle.com/code/ramazanturann/animerecommenderbert-inference
