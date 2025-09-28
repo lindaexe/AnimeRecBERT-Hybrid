@@ -13,6 +13,8 @@ https://www.kaggle.com/code/ramazanturann/animerecommenderbert-inference
 ### Kaggle Train
 https://www.kaggle.com/code/ramazanturann/animerecommenderbert-train
 
+### Huggingface Space
+https://huggingface.co/spaces/mramazan/AnimeRecBERT
 
 This project provides a solid foundation for further development in personalized anime recommendation using transformer-based models.
 
