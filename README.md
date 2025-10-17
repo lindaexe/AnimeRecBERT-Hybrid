@@ -8,6 +8,8 @@
 - **Kaggle Train and Inference Notebooks** available
 - **Huggingface Space** available
 
+-----------
+
 ### Kaggle Inference & Interactive Recommender
 https://www.kaggle.com/code/ramazanturann/animerecommenderbert-inference
 
